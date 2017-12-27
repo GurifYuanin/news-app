@@ -1,11 +1,11 @@
 package app.news.com.myapplication;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.content.Intent;
 
-public class ContentActivity extends AppCompatActivity {
+public class ContentActivity extends Activity {
     TextView t1;
     TextView t2;
 

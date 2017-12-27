@@ -31,7 +31,7 @@
 
 
         <EditText
-            android:id="@+id/usernameEditText"
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="此处输入用户名" />
@@ -46,12 +46,12 @@
             android:text="@string/password"
             android:textSize="20sp"
             />
+
         <EditText
-            android:id="@+id/passwordEditText"
+            android:id="@+id/password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="此处输入密码"
-            />
+            android:hint="此处输入密码" />
     </TableRow>
     <LinearLayout
         android:gravity="center_horizontal"

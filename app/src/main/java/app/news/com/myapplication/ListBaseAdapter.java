@@ -15,8 +15,6 @@ import android.content.Intent;
 
 public class ListBaseAdapter extends BaseAdapter {
     Context context;
-
-
     public ListBaseAdapter(Context context) {
         this.context = context;
     }
@@ -44,9 +42,9 @@ public class ListBaseAdapter extends BaseAdapter {
         TextView t1 = (TextView)view.findViewById(R.id.textView1);
         TextView t2 = (TextView)view.findViewById(R.id.textView2);
         ImageView img = (ImageView)view.findViewById(R.id.imageView);
-        t1.setText(title);
-        t2.setText(content);
-        img.setImageResource(R.mipmap.image1);
+        t1.setText(title); // 设置标题
+        t2.setText(content); // 设置预览内容
+        img.setImageResource(R.mipmap.image1); // 设置预览图片
         view.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
