@@ -1,0 +1,38 @@
+------------------多线程------------------
+1、
+	Runnable 线程名 = new Runnable(){			// 创建线程（但不运行）
+		void run(){
+}};			
+	Handler 处理句柄名 = new Handler();			// 创建处理器
+	处理句柄.post(线程);					// 执行线程
+	处理句柄.postDelayed(线程, 延迟);			// 延迟ms后执行线程
+
+2、
+class 自定义线程名 extends AsyncTask{
+	protected Object doInBackground(Object[] objects) {
+		return null;
+	}
+}
+自定义线程 线程名 = new 自定义线程();
+线程名.execute();
+
+------------------访问网络------------------
+URL url = new URL("协议://域名");			// 创建URL
+URLConnection connect = url.openConnection() ;		// 创建连接
+	setRequestProperty("键", "值");			// 设置请求键值对
+	connect();					// 执行连接
+	getInputStream()				// 打开输入流
+
+1、SpringBoot项目：开发项目框架
+	Java Resources			// Java源代码
+	pom.xml				// maven配置文件
+2、convert to JPA：转化为JPA项目
+	JPA Tools：Generate Entities from Tables // 自动实现ORM模型（类和表的映射，一个类对应一个表）
+3、封装Dao：数据库操作方法的封装
+public 表类 get表类(int id){
+	EntityManagerFactory factory = Persistence.createEntityManagerFactory("项目名"); //  创建管理器工厂
+	EntityManager manager = factory.createEntityManager(); // 获得管理器
+		find(表类名.class, id);	// 根据id查询指定表类的实例
+	Query query = manager.createNamedQuery("表类.findAll"); // 查询指定表类的实例
+	query.getResultList();					// 获得指定表类的实例
+}

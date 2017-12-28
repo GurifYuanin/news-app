@@ -1,0 +1,76 @@
+  部署		 行为	     布局
+  xml		 class	     xml
+	 <-	核心组件 <- 布局文件
+Manifes	 <-	核心组件 <- 布局文件
+	 <-	...
+
+核心组件：Activity
+布局格式：Linear、Relative、Abolute、Table、Grid
+
+------------------部署-------------------------------------------
+<manifest
+	package="核心组件根目录"
+>
+<uses-permission android:name="andriod.permission.INTERNET"/>	<!-- 网络访问开关 -->
+<application
+	android:icon=""
+	android:label=""	
+>
+	<activity name=".核心组件名">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+	</activity>
+</application>
+
+------------------行为-----------------------------------------
+------------------extends AppCompatActivity（核心组件/页面）
+void onCreate(Bundle savedInstanceState){
+	super.onCreate(savedInstanceState);			// 调用父类方法
+	setContentView(R.layout.布局文件名);			// 设置布局
+	自定义适配器 适配器名 = new 自定义适配器(this);		// 设置适配器
+
+	控件类型 控件名 = (控件类型)findViewById("R.id.控件ID");// 获取控件
+
+	控件.setOn事件Listener(new View.On事件Listener(){});	// 创建事件
+
+	Intent 目的名 = new Intent();				// 创建目的
+	目的.setClass(源页面.this, 目标页面.class);		// 设置跳转到的目标页面
+	目的.putExtra("数据名", 数据值);			// 设置传输数据
+	源页面.this.startActivity(目的);			// 启动目的（跳转）
+
+	Intent 目的名 = getIntent();				// 获取目的
+	目的.getStringExtra("数据名");				// 获取传输数据
+}
+------------------extends BaseAdapter（适配器/事务）
+Context context = null;
+自定义适配器名 (Context context) {			// 构造方法
+	this.context = context;				// 设置全局上下文
+}
+public int getCount() {
+	return 适配器执行次数;
+}
+View getView(int 第index次, View 视图, ViewGroup viewGroup){
+	视图 = LayoutInflater.from(context).inflate(R.layout.目标布局, null);	// 创建本次执行视图
+	return 视图;
+}
+
+------------------布局-------------------------------------------
+------------------布局属性
+LinearLayout
+	
+TableLayout
+	stretchColumns = "index"	指定列填充剩余布局
+------------------控件属性（单标签）
+
+------------------通用属性
+	margin/padding
+	layout_height/width		height/width	
+	minHeight/Width			最小高度宽度（设在item等）
+	layout_weight			所占大小权重
+	gravity				aligiin
+	text				value
+	textSize			font-size
+
+

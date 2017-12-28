@@ -1,0 +1,24 @@
+------------------多线程------------------
+1、
+	Runnable 线程名 = new Runnable(){			// 创建线程（但不运行）
+		void run(){
+}};			
+	Handler 处理句柄名 = new Handler();			// 创建处理器
+	处理句柄.post(线程);					// 执行线程
+	处理句柄.postDelayed(线程, 延迟);			// 延迟ms后执行线程
+
+2、
+class 自定义线程名 extends AsyncTask{
+	protected Object doInBackground(Object[] objects) {
+		return null;
+	}
+}
+自定义线程 线程名 = new 自定义线程();
+线程名.execute();
+
+------------------访问网络------------------
+URL url = new URL("协议://域名");			// 创建URL
+URLConnection connect = url.openConnection() ;		// 创建连接
+	setRequestProperty("键", "值");			// 设置请求键值对
+	connect();					// 执行连接
+	getInputStream()				// 打开输入流

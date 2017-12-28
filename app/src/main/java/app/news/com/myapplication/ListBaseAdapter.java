@@ -21,7 +21,7 @@ public class ListBaseAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 10;
+        return 5;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class ListBaseAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
+    public View getView(final int position, View view, ViewGroup viewGroup) {
         final String title = "Title" + position;
         final String content = "Content" + position;
         view = LayoutInflater.from(context).inflate(R.layout.item, null);
@@ -44,17 +44,21 @@ public class ListBaseAdapter extends BaseAdapter {
         ImageView img = (ImageView)view.findViewById(R.id.imageView);
         t1.setText(title); // 设置标题
         t2.setText(content); // 设置预览内容
-        img.setImageResource(R.mipmap.image1); // 设置预览图片
+        img.setImageResource(getImageId(context, "image" + (position + 1))); // 设置预览图片
         view.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Intent intent = new Intent();
                 intent.setClass(context, ContentActivity.class);
-                intent.putExtra("title", title);
-                intent.putExtra("content", content);
+                intent.putExtra("title", title); // 新闻标题
+                intent.putExtra("content", content); // 新闻预览内容
+                intent.putExtra("id", position); // 新闻ID
                 context.startActivity(intent);
             }
         });
         return view;
+    }
+    public static int getImageId(Context context, String imageName) {
+        return context.getResources().getIdentifier("mipmap/" + imageName, null, context.getPackageName());
     }
 }
