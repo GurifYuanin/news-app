@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.widget.EditText;
 
 
+
 public class LoginActivity extends Activity {
     private Button loginButton;
     private Button regiterButton;
@@ -41,7 +42,7 @@ public class LoginActivity extends Activity {
 
             }
         });
+        
     }
+
 }
-
-
